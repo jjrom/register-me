@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/with-contenv /bin/bash
 #
 # Copyright 2022 Jérôme Gasperi
 #
