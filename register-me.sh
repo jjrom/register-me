@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv /bin/bash
+#!/command/with-contenv /bin/bash
 #
 # Copyright 2022 Jérôme Gasperi
 #
@@ -61,25 +61,17 @@ do
 done
 
 if [[ ! -f "${JSON_FILE}" ]]; then
-    showUsage
-    echo -e ""
-    echo -e "      ${RED}[ERROR] Service description file \"${JSON_FILE}\" does not exist${NC}"
-    echo ""
+    echo -e "[register-me] Service description file \"${JSON_FILE}\" does not exist${NC} - aborting (see -h)"
     exit 0
 fi
 
 if [[  "${HEALTHCHECKR_SERVICES_ENDPOINT}" == "" ]]; then
-    showUsage
-    echo -e ""
-    echo -e "      ${RED}[ERROR] The target environment variable HEALTHCHECKR_SERVICES_ENDPOINT is not set${NC}"
-    echo ""
+    echo -e "[register-me] The target environment variable HEALTHCHECKR_SERVICES_ENDPOINT is not set - aborting (see -h)"
     exit 0
 fi
 
 if [[  "${HEALTHCHECKR_AUTH_TOKEN}" == "" ]]; then
-    showUsage
-    echo -e ""
-    echo -e "      ${RED}[ERROR] The target environment variable HEALTHCHECKR_AUTH_TOKEN is not set${NC}"
+    echo -e "[register-me] The target environment variable HEALTHCHECKR_AUTH_TOKEN is not set - aborting (see -h)"
     echo ""
     exit 0
 fi
